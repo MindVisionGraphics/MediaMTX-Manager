@@ -1,0 +1,67 @@
+SCHEDULED RECORDING AND AUTOMATIC STORAGE CLEANUP
+
+INSTALL ON THE WEBSITE/CAMERA COMPUTER
+1. Stop any active recording, then Quit manager.
+2. Open this update ZIP and copy ALL its contents into the existing manager folder.
+   Choose Replace files. Do not leave the update in a separate folder.
+   Keep your existing runtime and data folders; neither is included in the small update.
+3. Confirm recording-automation.mjs and website-feeds.mjs are beside server.mjs.
+4. Open that folder's Start Manager.vbs once, then select Recordings.
+5. You should see Recording schedules and Recording storage above the saved videos.
+
+No WordPress, Apache or router changes are needed. Mobile-friendly public video stays enabled
+for the cameras you previously selected. Camera passwords and existing recordings are retained.
+Schedules and automatic deletion are OFF by default until you save enabled settings.
+
+RECORDING SCHEDULES
+Choose a camera's start days, start/end time, Enable scheduled recording, then Save schedule.
+One recurring time window per camera is supported in this update.
+Times follow the camera computer's Windows clock/time zone, shown on the page.
+An earlier end time runs through midnight into the next day. Selected days are the START days.
+Example: Monday, 10 PM to 6 AM records Monday night through Tuesday morning.
+Start and end times must differ.
+The computer must be awake, the manager and MediaMTX server running, and the camera resumed.
+Missed hours while the computer was off are not recorded retrospectively.
+Schedules are checked approximately every five seconds.
+
+MANUAL CONTROLS
+Manual Record continues until you stop it, including outside scheduled hours.
+Stop recording inside an active scheduled window skips the remainder of that session.
+The next scheduled session can start normally. Editing/saving a schedule clears that skip.
+Pausing a camera or stopping the server prevents recording; these controls are not overridden.
+When you resume the camera/server, a still-requested manual or currently active scheduled
+recording can resume. Saved schedules and manual intent survive manager restart.
+
+STORAGE
+Choose recording age, maximum recording space and minimum free drive space.
+Use 0 to disable an individual limit. Storage figures labelled GB use 1,073,741,824 bytes.
+Defaults shown are 30 days, 50 GB of recordings and 5 GB free, but cleanup starts OFF.
+Preview these limits evaluates your entered limits without saving them or deleting anything.
+Enabling automatic cleanup and saving starts permanent deletion of eligible old recordings.
+The oldest eligible recordings are deleted first. Cleanup checks approximately once a minute.
+Only MP4 files inside this manager's data/recordings stream folders are eligible.
+Linked folders and files are not followed. Files updated in the last two minutes and the
+latest file of an active recorder are protected. Open files may also be held by Windows.
+Limits can briefly be exceeded while protected files finish or between checks.
+
+If free space or recording quota cannot be satisfied, recording pauses; live viewing and
+public website video continue. Recording can resume when the configured limits allow it.
+Run cleanup now uses SAVED limits and asks before deleting the estimated eligible files.
+Disabling automatic cleanup also disables this update's configured recording-storage guard.
+Deleted recordings are permanently removed; they do not go into the Windows Recycle Bin.
+Settings backups and external video backups are not part of this update.
+
+QUICK CHECKS
+1. Set a schedule starting shortly, enable it and check that a recording is created.
+2. Press Stop during its scheduled session; it should stay stopped for that session.
+3. Try Preview these limits; it should report eligible files without removing anything.
+4. Enable storage cleanup only after choosing the limits you want.
+5. Check that your phone's website video still plays smoothly.
+
+TESTS COMPLETED
+Overnight/day boundaries, manual override and next-session resume, age/quota/free-space
+selection, recent/active-file protection and junction isolation; actual MediaMTX scheduled
+recording and MP4 creation; retention preview versus deletion in isolated test folders;
+storage safety pause/resume; preferences retained after restart; browser controls/layout;
+and regression checks for the separate lower-bandwidth website feed and public-route isolation.
+These tests used isolated sample data, not your live installation or your saved recordings.

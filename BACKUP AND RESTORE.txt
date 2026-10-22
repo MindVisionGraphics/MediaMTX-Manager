@@ -1,0 +1,68 @@
+BACKUP AND RESTORE — SETTINGS UPDATE
+
+INSTALL
+Stop any recording, Quit manager, and copy ALL ZIP contents into your existing manager folder.
+Replace files; keep the existing data and runtime folders. Open that folder's Start Manager.vbs.
+Refresh the manager page, then go to Settings > Backup and restore.
+No WordPress, Apache or router changes are needed. Previous app features are included.
+
+CREATE A BACKUP
+Choose a passphrase of at least 12 characters and repeat it.
+Leave Include camera passwords checked to transfer those passwords to another Windows computer.
+Download encrypted backup saves a .mtxbackup.json file through your browser.
+Keep the backup somewhere separate from the camera computer, and keep its passphrase safe.
+The app cannot recover a forgotten passphrase. Automatic local restore points are not a
+replacement for a backup stored somewhere else.
+
+INCLUDED
+Workspace name, camera names/addresses/accounts, recurring schedules, recording-storage limits,
+and website sharing configuration. Optional camera passwords are inside the encrypted file.
+The whole backup is passphrase encrypted, even if camera passwords are omitted.
+Camera passwords are unlocked locally for encryption and re-protected for the destination
+Windows account when restored. There are no plaintext camera passwords in the downloaded JSON.
+
+NOT INCLUDED
+Recorded video, running programs, Windows/Apache/WordPress configuration, activity history,
+current manual recording sessions/timers, and browser-only preferences such as animation choice.
+Backing up videos separately remains necessary if you want to recover footage after drive loss.
+
+RESTORE
+Choose the backup file, enter its passphrase and select Preview backup.
+The preview checks the file and lists the setup to be restored; it does not change settings.
+It shows which current cameras will be replaced. This version replaces, rather than merges,
+the camera/settings setup. Existing recorded video files are not moved or deleted.
+Restore these settings asks for confirmation and stops current recordings before applying.
+
+RESTORED CAMERAS ARRIVE PAUSED.
+Recording schedules, public sharing and automatic cleanup are restored switched OFF.
+Their configured days, times, camera selections and limits are retained for your review.
+Resume cameras and enable the automation/sharing options you want after checking them.
+If passwords were omitted, edit the restored cameras and enter their Camera Account passwords.
+Schedules follow the destination computer's clock and time zone.
+Your server keeps its prior running/stopped state; camera feeds remain paused until resumed.
+
+PREVIOUS SETUP
+Before applying a restore, the manager saves a local restore point in data/restore-points.
+Its saved camera secrets use Windows protection, as they do in workspace.json.
+Afterward Settings > Backup and restore shows Preview previous setup.
+You can review and restore that configuration too; it also arrives with cameras paused and
+sharing/schedules/cleanup switched off. Restoring a previous setup creates another restore point.
+These local recovery points remain on this computer and do not include video files.
+If applying a restore fails after stopping the server, the app attempts to retain/restart
+the old setup automatically. Tests cover a restore-point write failure and rollback.
+
+LIMITS
+Backup format version 1 supports up to 100 cameras; files must be under 2 MB.
+Restore previews expire after 10 minutes or if the current configuration changes.
+Preview the file again if it expires. A used restore preview cannot be applied twice.
+Encrypted exports use AES-256-GCM with a random salt/nonce and a fixed scrypt key derivation.
+No new external service or account is involved.
+
+CHECKS COMPLETED
+Authenticated encrypted round-trip; wrong passphrases, damaged ciphertext, invalid schema,
+duplicate/path-traversal camera IDs and altered encryption headers rejected; optional password
+omission; credential re-wrapping; preview without changes; stale/reused-preview rejection;
+actual Windows credential export/re-encryption, previous-setup recovery and rollback failure test;
+saved video bytes preserved; schedule/storage and Standard/Data Saver regression tests;
+browser layout and accessible labels. Tests used isolated sample settings, not your live setup.
+A restore on another physical computer still needs user testing.

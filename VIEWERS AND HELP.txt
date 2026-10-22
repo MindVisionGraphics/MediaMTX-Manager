@@ -1,0 +1,51 @@
+WATCH QUALITY, VIEWER COUNTS AND HELP
+
+Stop recordings and Quit manager, then extract every file from the update ZIP
+into your existing manager folder, replacing matching files. Reopen the manager
+and refresh existing tabs. Website visitors should refresh the Watch page too.
+This update includes earlier features and fixes. It does not replace your data.
+The small Web Update uses your existing runtime. The Desktop Update additionally
+bundles the desktop runtime if you skipped the earlier desktop download.
+
+WATCH PAGE
+Each camera now has a Quality menu: Standard (640x360, 15fps) or Data Saver
+(320x180, 10fps). Switching quality briefly reconnects that player. The visitor's
+choice is saved in their browser per camera. No video loads before Watch live.
+Settings > Public website viewing also has Default Watch page quality for new
+visitors or browsers without a saved choice. These are fixed viewing presets,
+not automatic adaptive bitrate streaming. Camera originals and recordings retain
+their source quality. There is no new 720p or 1080p public preset in this update.
+
+VIEWER COUNTS
+Dashboard and Cameras show an estimated overall website viewing-session count
+and a count per camera. Counts start after playback starts; local manager previews
+and forwarding outputs are excluded. One page watching two cameras counts once
+overall, once for each camera. Separate tabs/devices can count separately.
+Counts indicate audience activity, not a rating of picture quality.
+
+Pause/Stop removes a viewing session. Sessions update every 15 seconds while video
+is progressing. Brief buffering is allowed; stalled or disconnected viewers expire
+within 45 seconds of their last accepted update. A new manager process resets the
+count. No IP addresses, cookies, persistent identifiers or viewing history are
+stored by this feature. Anonymous counts are approximate and can be spoofed;
+they are not billing, unique-person analytics or proof of a human viewer.
+
+The existing HTTPS viewer proxy must pass POST /watch/session with its JSON body
+and must not cache it. Standard Apache ProxyPass configurations do this already.
+Do not expose the manager port to make counts work. The public session endpoint
+can only update temporary counts for explicitly shared cameras; it cannot change
+manager settings or recordings. A blocked session endpoint leaves video usable
+but counts unavailable. Older cached Watch scripts do not report viewer counts.
+
+HELP / FAQ
+The new Help sidebar page has expandable answers about camera accounts, waiting
+for video, website quality/buffering/counts, recording, cleanup, backups and closing
+the app. A troubleshooting-log feature has not been added.
+
+TESTING
+Passed: session deduplication, overall/per-camera totals, Stop and expiration,
+revocation on sharing disable, request validation, original public access checks,
+default quality in encrypted backups, real browser playback counted once, quality
+switching, saved visitor choice, count returns to zero after Stop, local manager
+previews excluded, owner default menu and expandable FAQ. Existing website-feed
+tests verify both preset outputs and original recording quality independently.

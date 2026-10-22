@@ -1,0 +1,31 @@
+MEDIAMTX MANAGER LOGO
+
+Final aligned revision approved October 22, 2026: equal M legs, play triangle on
+the same baseline, and broadcast curves aligned above it with the top of the M.
+
+The same blue M / mint play symbol now appears in:
+- the top-left home button and browser tab icon;
+- the desktop window's title-bar icon;
+- new Desktop and Start-menu shortcuts;
+- the Windows app EXE, setup EXE and setup window;
+- the Mac app's ICNS icon and Info.plist icon reference.
+
+Portable users: Quit manager, close the desktop window, copy all files from the
+Logo Update ZIP into the portable manager folder, and reopen. Run Create
+Shortcuts.vbs again to refresh the shortcuts. Restart the desktop window to load
+its new title-bar icon. Your settings and recordings are not changed.
+
+Installed users: use the refreshed Windows Setup EXE, rather than extracting
+portable update files into the installed application root. The setup remains an
+unsigned preview with manual install/upgrade/uninstall acceptance still pending.
+Mac signing and execution checks remain pending too.
+
+Logo master: dist/assets/app-logo.svg
+Large transparent PNG: dist/assets/app-logo.png
+Window PNG: dist/assets/app-icon.png
+Windows multi-size ICO: dist/assets/app.ico
+Mac ICNS source: installer-source/MediaMTXManager.icns
+
+The vector master and deterministic raster exports use matching shapes/colors.
+Windows ICO includes 16, 24, 32, 48, 64, 128 and 256 pixel renderings. Mac ICNS
+includes 16 through 1024 pixel renderings. Artwork created for MindVision Graphics.

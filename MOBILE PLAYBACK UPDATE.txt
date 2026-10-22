@@ -1,0 +1,24 @@
+MOBILE PLAYBACK UPDATE
+
+This update gives website playback more room for brief connection slowdowns.
+It keeps 12 HLS segments instead of 4, targets 2-second segments, and lets the
+website player start approximately 12 seconds behind live when history is available.
+Safari/native HLS gets the same start-position hint; individual browsers may interpret it differently.
+Camera resolution and recording settings are unchanged.
+
+On the website/camera computer:
+1. Stop any active recording, then Quit manager.
+2. Extract this ZIP into the existing manager folder and replace its files.
+   Keep the existing data and runtime folders.
+3. Open Start Manager.vbs once. No Apache or WordPress change is needed.
+4. Let the camera run for about 30 seconds so the longer history can build.
+5. Close and reopen the phone's viewing page, then press Watch live.
+
+The video will be a little further behind the actual printer. This is intentional.
+This update cannot compensate for a connection that is consistently slower than
+the video bitrate. If repeated stalls remain, test a lower-bandwidth website feed
+and measure the studio's upload speed and phone connection.
+
+Checks passed: actual MediaMTX configuration startup, player syntax, viewer access
+isolation, and native-player start hints. Cellular playback still needs retesting
+on your phone after applying this update; it has not been verified remotely.

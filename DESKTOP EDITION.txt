@@ -1,0 +1,47 @@
+MEDIAMTX MANAGER - WINDOWS DESKTOP PREVIEW
+By MindVision Graphics
+
+Existing users: stop recording and Quit manager first. Extract ALL contents of
+the Desktop Update ZIP into your existing manager folder, replacing matching
+files. Keep your existing data and runtime files. The update includes earlier
+custom-camera and forwarding features. It adds runtime/desktop; no command-line
+installation or separate Electron download is required.
+
+New users: extract the COMPLETE Windows Desktop package, not the update ZIP.
+
+OPEN
+- Start Desktop.vbs opens a dedicated application window without browser tabs.
+- Start Manager.vbs opens the web version in your default browser.
+- Both use the same local cameras, settings and recordings in this folder.
+- Opening the desktop shortcut again focuses the existing desktop window.
+- Create Shortcuts.vbs adds Desktop and Start-menu shortcuts for the editions
+  present. Put the folder in its permanent location before creating shortcuts.
+  The shortcut helper does not move files, migrate data, or install a service.
+  If you move the folder, run it again from the new location.
+
+STOP AND RESTART
+Closing the desktop window leaves cameras and recordings running, like closing
+the web tab. Use Settings > Quit manager to stop the camera manager and server.
+The window stays available with Start manager so you can restart inside it.
+Manager > Close desktop window closes only the window. Manager > Open web version
+opens the browser intentionally; normal desktop startup never opens a browser.
+
+Downloads and encrypted backup exports use a Windows Save dialog. Browser viewing
+preferences are stored separately in the desktop window's own browser profile.
+Camera settings and recordings are shared. Website viewers remain independent.
+The desktop profile lives under AppData/Roaming/MindVision Graphics/MediaMTX Manager.
+
+VERIFICATION AND LIMITS
+Verified on the development Windows computer: real desktop startup and repeated
+startup with one window, manager API connectivity, actual sample recording,
+Quit/Start with retained local page and cameras, native shortcut file resolution.
+Automated shell tests also cover sandboxing, renderer Node access disabled,
+permission denial, external navigation isolation and download-dialog setup.
+Full native video playback/download interaction still needs user acceptance.
+This is a portable preview, not a signed installer or a Windows service.
+The desktop runtime is Electron v45.0.0, downloaded from the official Electron
+GitHub release and verified against its published SHA-256 checksum. Its LICENSE
+and LICENSES.chromium.html are retained in runtime/desktop.
+
+No cloud account, router port forwarding, administrator access or CMD is needed.
+The manager remains local to this computer. The macOS edition is still pending.

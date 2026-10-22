@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">MediaMTX Manager</title>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="#102849" stroke="#315a88" stroke-width="2"/>
+  <path d="M20 94V36h14l15 24 15-24h14v46H64V61L49 82 34 61v33Z" fill="#60a8ff"/>
+  <path d="m86 55 23 15-23 15Z" fill="#79e0c3"/>
+  <g fill="none" stroke="#79e0c3" stroke-width="4" stroke-linecap="round">
+    <path d="M91 30c11 1 19 9 20 20"/>
+    <path d="M91 40c5 1 9 5 10 10"/>
+  </g>
+</svg>

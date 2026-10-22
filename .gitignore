@@ -1,0 +1,22 @@
+# Local camera configuration, credentials, recordings and generated media
+/data/
+/runtime/
+/work/
+/outputs/
+.openai/
+node_modules/
+.env
+.env.*
+*.mtxbackup.json
+*.log
+*.zip
+*.tar.gz
+*.exe
+*.mp4
+*.ts
+*.m3u8
+*.pem
+*.key
+*.pfx
+.DS_Store
+Thumbs.db

@@ -1,0 +1,37 @@
+LIGHTER WEBSITE VIDEO UPDATE
+
+The previous buffer update is active on the website, but repeated mobile stalls remain.
+This update creates a separate lower-bandwidth video feed for each publicly shared camera.
+
+Website video: up to 640 x 360, 15 frames per second, baseline H.264, regular 2-second keyframes.
+Encoder video rate cap: 400 kbps with short bursts and HLS/network overhead above this.
+Measured sample: about 411 kbps including HLS packaging, compared with the camera's roughly 1,200 kbps.
+This is a single lightweight stream, not automatic multi-quality adaptive streaming.
+
+Original camera streams, local previews and recording settings keep their existing quality.
+Only cameras selected for public viewing get a website encoder. Multiple viewers share that encoder.
+The camera computer does the encoding, so it uses additional CPU while sharing is enabled.
+Website feeds contain video only and are not recorded separately.
+
+INSTALL ON THE WEBSITE/CAMERA COMPUTER
+1. Stop any current recording, then Quit manager.
+2. Extract this update into the EXISTING manager folder and replace files.
+   Keep your existing data and runtime folders. They are not included in this update.
+   Make sure website-feeds.mjs is next to server.mjs.
+3. Open Start Manager.vbs once. Existing public camera selections are retained.
+4. Wait about 30 seconds, then close and reopen https://mindvisiongraphics.com/watch/ on your phone.
+5. With Wi-Fi off, press Watch live and watch for a minute or two.
+
+No Apache, router or WordPress changes are needed. The URL stays the same.
+Settings > Public website viewing now shows the mobile-friendly website quality.
+
+The update requires the FFmpeg runtime already included in the full Windows package.
+Website encoding starts automatically and reconnects if the source temporarily disappears.
+Disabling public sharing, pausing a camera, or stopping the server stops its website encoder.
+
+TESTS COMPLETED
+Real bundled MediaMTX + FFmpeg sample test verified 640x360 public playback while the original
+1280x720 sample remained unchanged, stable 2-second segments, lower bitrate, recording output,
+sharing revocation, pause/resume and server restart recovery. Public route isolation also passed.
+These are local tests; they do not prove the cellular issue is resolved. Retest on your phone.
+If stalls persist, report the phone/browser and whether it also happens on another outside connection.

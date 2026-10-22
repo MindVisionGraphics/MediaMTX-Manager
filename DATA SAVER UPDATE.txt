@@ -1,0 +1,38 @@
+VISITOR DATA SAVER
+
+On the website/camera computer:
+1. Stop recording, then Quit manager.
+2. Copy ALL contents of this ZIP into your existing manager folder; replace files.
+   Keep your existing data and runtime folders.
+3. Open that folder's Start Manager.vbs once and wait about 30 seconds.
+4. Close/reopen https://mindvisiongraphics.com/watch/ on your phone.
+
+Each camera card now has Standard and Data Saver buttons beside its viewing controls.
+Visitors can choose before pressing Watch live, or switch while watching.
+Switching an active video reconnects that player's feed; a short loading pause is expected.
+Choosing a quality while stopped does not start playback.
+The visitor's browser remembers their choice for each camera when local storage is available.
+The default for a first visit is Standard. Each visitor's choice is independent.
+
+Standard: up to 640x360, 15 frames per second, video rate capped around 400 kbps plus overhead/bursts.
+Data Saver: up to 320x180, 10 frames per second, capped around 120 kbps plus overhead/bursts.
+Data Saver sacrifices sharpness and motion detail to use less data.
+In sample testing Standard used 411 kbps and Data Saver 121 kbps including HLS packaging.
+Actual rates vary with the picture. Slower connections can still buffer; this is not a guarantee.
+
+The manager dashboard and recording quality are unaffected by visitors' choices.
+The website computer creates two small feeds per publicly shared camera, shared by visitors;
+it does not create a new encoder per visitor. This uses additional CPU on that computer.
+Only the quality a visitor selects is downloaded by their player.
+Both website feeds are video-only and are not separately recorded.
+Pausing/removing a camera, disabling sharing, stopping the server or quitting the manager
+prevents access to both public quality routes. The viewer never exposes manager controls.
+
+This package includes the schedules/storage controls and the earlier mobile playback changes.
+No WordPress, Apache, router, camera-password or public-link changes are needed.
+
+Checks passed: actual FFmpeg/MediaMTX playback of both sizes and frame rates, lower measured
+Data Saver bitrate, independent Standard playback, original sample/recording retained,
+sharing revocation, pause/resume and server restart; public-route isolation and schedule/storage
+regressions; browser button switching, live playback and selected-state accessibility.
+Your phone's cellular performance still needs checking after installation.

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">MediaMTX Manager</title>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="#102849" stroke="#315a88" stroke-width="2"/>
+  <path d="M25 94V34h17l22 30 22-30h17v60H85V65L64 92 43 65v29Z" fill="#60a8ff"/>
+  <path d="m58 30 19 11-19 11Z" fill="#79e0c3"/>
+</svg>

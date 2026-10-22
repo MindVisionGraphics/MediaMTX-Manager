@@ -1,0 +1,31 @@
+OTHER RTSP CAMERAS
+
+This cumulative update also includes the previous stream-forwarding feature.
+Quit the manager, extract every file into your existing manager folder (replace
+matching files), reopen Start Manager.vbs and refresh your existing browser tab.
+Keep your existing data and runtime folders.
+
+Under Cameras > Add camera, choose:
+- Tapo camera: the existing main-stream / low-bandwidth setup.
+- Other RTSP camera: supply the camera IP, port and manufacturer's RTSP path.
+
+For example, if the manufacturer gives rtsp://192.168.1.50:554/Streaming/Channels/101,
+enter 192.168.1.50, port 554, and /Streaming/Channels/101 in their separate fields.
+Paths can include quality queries such as /cam/realmonitor?channel=1&subtype=0.
+Enter username/password separately. Never put passwords or access tokens in the
+stream path. Passwords are encrypted for your Windows account. Choose No login
+required only when the camera already allows anonymous RTSP viewing.
+
+Choose H.264 video in the camera's own settings for browser compatibility.
+Camera discovery, ONVIF setup, H.265 conversion, RTSPS, RTMP and SRT camera inputs
+are not included in this addition. A manufacturer's app working does not imply
+that its camera offers RTSP; check that camera model's instructions.
+
+LOCAL VERIFICATION
+Passed with a separate local MediaMTX source and synthetic video: authenticated
+and anonymous input, nested paths and query parameters, HLS browser playlist,
+actual MP4 recording, pause/resume, edit without replacing password, manager
+restart, encrypted portable backup and anonymous mode without credentials.
+Existing Tapo setup and legacy backups remain supported.
+These tests verify the connection flow, not every manufacturer's RTSP behavior.
+Physical cameras from other brands have not been tested.

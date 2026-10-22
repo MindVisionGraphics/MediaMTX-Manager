@@ -1,0 +1,63 @@
+STREAM FORWARDING — FIRST EXPERIMENTAL RELEASE
+
+INSTALL
+Stop recording, Quit manager, and copy ALL ZIP contents into your existing manager folder.
+Replace files; keep your data and runtime folders. Open that folder's Start Manager.vbs.
+Refresh the manager page and select Streams > Stream forwarding.
+This package includes all previous About, backup/restore, schedules/storage and Data Saver changes.
+No Apache, WordPress or router changes are needed for this outgoing feature.
+
+WHAT THIS DOES
+Forward a live H.264 camera to an RTMP or RTMPS streaming server using its server URL and stream key.
+The destination service supplies those details. No destination presets or external accounts are created.
+This is separate from the public website viewer, which continues to work through its existing /watch/ URL.
+Your local previews and original recording settings are unchanged.
+
+USE
+1. Enter a name, choose a camera, and enter the destination's server URL and stream key separately.
+2. Save destination. Saving DOES NOT start sending video.
+3. Wait until the camera is Live. Select Start forwarding and confirm when ready to send video.
+4. The list reports Connecting, Forwarding, Error or Stopped, with bytes sent for the current session.
+5. Stop forwarding ends that outgoing feed. To change the URL/key, remove it and add it again.
+
+The first version supports up to eight destinations and H.264 video sources.
+Server addresses must use rtmp:// or rtmps:// with an application path, without embedded
+username/password, query or stream-key fragment. Put the key in the separate Stream key box.
+Camera audio is NOT sent. The app adds a silent AAC audio track for service compatibility.
+Some services, including YouTube, require an audio track even when the camera is silent.
+Frame rate, resolution and video keyframes remain those of the source; outside services
+may require different encoding settings that are not configurable in this first version.
+
+AFTER PAUSING OR RESTARTING
+Forwarding stops if the camera is paused, removed or changes source path, or if the server stops.
+Forwarding remains stopped after server/manager restart; press Start forwarding again when ready.
+If only the remote destination disconnects, MediaMTX handles reconnect attempts; the status reflects it.
+If the local source helper exits, select Start to retry once the source is Live again.
+Removing a camera also removes its forwarding destinations; saved recordings remain.
+
+KEYS AND BACKUPS
+The server URL/key are encrypted together using Windows account protection in workspace.json.
+Keys are not returned to the destination list, written in the generated startup configuration,
+included in activity messages, or placed in FFmpeg's command-line arguments.
+MediaMTX does hold the destination in its local control API memory, as it must to connect.
+The existing local-only API protections remain in place; the public viewer cannot read this API.
+Encrypted backups include destination settings and keys when Include camera passwords and
+stream keys is checked. When unchecked, destinations are backed up without their keys.
+Restored destinations remain stopped. Missing keys require removing/re-adding the destination.
+Older backups without forwarding settings remain supported.
+
+VERIFICATION
+Actual bundled MediaMTX/FFmpeg local RTMP receiver test passed: H.264 video and silent AAC
+arrived, outbound bytes advanced, Stop ended delivery, failed connections showed Error,
+keys were encrypted/redacted and included/omitted correctly in encrypted backups,
+and pause/server/manager restart left forwarding stopped with destination settings retained.
+Backup/restore, recording schedules/storage, Standard/Data Saver and public-route isolation
+regressions were also checked using isolated test data.
+
+RTMPS is exposed through MediaMTX's native implementation but has not been end-to-end tested
+against a TLS destination in this release. YouTube, Twitch and other outside services have
+NOT been tested. The interface deliberately labels forwarding Experimental.
+This update does not add incoming RTMP publishing, WebRTC viewing or SRT controls.
+No video was sent to an outside service during development tests.
+
+Official reference: https://mediamtx.org/docs/features/forward

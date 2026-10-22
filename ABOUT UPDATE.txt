@@ -1,0 +1,21 @@
+ABOUT PAGE UPDATE
+
+Adds About directly below Settings in the sidebar, with the existing connected-curve navigation.
+The page includes the MindVision Graphics logo, Created by MindVision Graphics credit,
+website link, app build details, current MediaMTX version, and bundled-software credits.
+The actual MindVision Graphics logo from the website is bundled locally and works offline.
+Logo source: https://mindvisiongraphics.com/wp-content/uploads/2026/09/mindvision-logo-v230-1024x304.png
+
+On the website/camera computer:
+1. Stop recording, then Quit manager.
+2. Copy ALL ZIP contents into your existing manager folder, replacing files.
+   Keep your existing data and runtime folders.
+3. Open that folder's Start Manager.vbs once.
+4. Refresh the manager page and select About, directly below Settings.
+
+This package also includes Data Saver, recording schedules and storage cleanup from prior updates.
+Your saved cameras, recordings, public sharing choices and preferences are not replaced.
+No WordPress, Apache or camera changes are needed.
+
+Checks: navigation order and keyboard navigation, connected-curve selection, logo rendering,
+local PNG content type, readable software credits, JavaScript/server/launcher syntax and page layout.
