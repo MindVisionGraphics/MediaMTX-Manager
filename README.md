@@ -16,13 +16,17 @@ published yet. GitHub's Download ZIP contains source, not a ready-to-install app
 | Tapo camera playback, pause/resume and recording | Passed in earlier owner tests |
 | Installed web shortcut | Awaiting owner confirmation |
 | Upgrade, uninstall and data preservation | Acceptance testing pending |
-| macOS Intel and Apple Silicon | Test bundles prepared; execution unverified |
+| macOS Intel — Monterey 12.1 | Core launch, camera, recording/playback, pause/resume and same-window Quit/Start passed owner tests |
+| macOS Apple Silicon | Compatibility checks passed; hardware testing pending |
 | Code signing / Mac notarization | Not completed |
 
 The packaged Windows preview includes its required components and graphical
 setup; end users do not need CMD, PowerShell or manual package installation.
-The planned Mac release will also bundle its components. Mac installation and
-Keychain behavior still require testing.
+The Mac preview also bundles its components and targets macOS 12.0 or later.
+Keychain persistence and remaining Mac acceptance checks still need confirmation.
+
+Platform notes: [Windows](platforms/windows/README.md) · [macOS](platforms/macos/README.md).
+Packaged apps will be separate, clearly named attachments on the Releases page.
 
 ## Features
 

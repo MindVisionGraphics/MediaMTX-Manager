@@ -1,0 +1,9 @@
+# Windows preview
+
+The graphical installer is packaged separately from this source repository.
+Desktop installation and Quit/Start in the same desktop window passed owner tests.
+Tapo viewing, pause/resume and recording passed earlier tests. Installed web
+shortcut, upgrade, uninstall and data preservation acceptance remain pending.
+The preview is unsigned. No command-line setup is needed for the packaged app.
+
+When published, get the Windows setup EXE from [Releases](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases).
