@@ -73,6 +73,11 @@ See [the source guide](docs/SOURCE-GUIDE.md) and [packaging notes](packaging/REA
 The packaging scripts currently expect the project's local build layout; they are
 not yet a standalone automated release pipeline.
 
+## A little hidden history 🏴‍☠️
+
+The Mac edition has a hidden Easter egg from the developer. A little curiosity
+might uncover the story behind getting it running. Can you find it?
+
 ## License and credits
 
 Manager-authored code is provided under the [MIT license](LICENSE).
