@@ -21,12 +21,14 @@ def command(args):
 
 config = (root / 'ffmpeg/config.h').read_text()
 enabled_external = re.findall(r'^#define CONFIG_(LIB\w+) 1$', config, re.MULTILINE)
-assert set(enabled_external) == {'LIBX264'}, enabled_external
+# HDR10 support is a feature of the same x264 library, not a second dependency.
+assert 'LIBX264' in enabled_external
+assert set(enabled_external) <= {'LIBX264', 'LIBX264_HDR10'}, enabled_external
 version = command([str(executable), '-version'])
 assert '--enable-nonfree' not in version
 report = {'platform': label, 'source': json.loads((script / 'sources.json').read_text()),
     'sha256': hashlib.sha256(executable.read_bytes()).hexdigest(),
-    'enabledExternalLibraries': enabled_external,
+    'enabledExternalLibraries': ['libx264'], 'enabledLibraryConfigurationFlags': enabled_external,
     'nativeSmokeTests': json.loads((root / 'smoke-results.json').read_text()),
     'compiler': command(['gcc' if label == 'windows-x64' else 'clang', '--version']),
     'gitCommit': command(['git', '-C', str(repo), 'rev-parse', 'HEAD']).strip(),

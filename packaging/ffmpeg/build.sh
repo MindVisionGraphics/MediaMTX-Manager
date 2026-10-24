@@ -28,7 +28,7 @@ FFMPEG_FLAGS=(
   --enable-encoder=libx264,aac,pcm_s16le,rawvideo,wrapped_avframe
   --enable-parser=h264,hevc,aac
   --enable-bsf=h264_mp4toannexb,hevc_mp4toannexb,aac_adtstoasc,extract_extradata,null,dump_extra
-  --enable-filter=anullsrc,testsrc2,testsrc,color,scale,fps,format,setpts,aresample,aformat,anull,null,showinfo
+  --enable-filter=anullsrc,testsrc2,testsrc,color,scale,fps,format,setsar,setpts,aresample,aformat,anull,null,showinfo
   --pkg-config-flags=--static --extra-cflags="-I$PREFIX/include"
   --extra-ldflags="-L$PREFIX/lib" --extra-version=mindvision-source-build-1
 )

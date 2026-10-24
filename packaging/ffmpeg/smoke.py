@@ -24,7 +24,7 @@ run(['-f', 'lavfi', '-i', 'testsrc2=size=640x360:rate=15', '-f', 'lavfi', '-i',
      'anullsrc=channel_layout=stereo:sample_rate=48000', '-t', '2', '-c:v', 'libx264',
      '-preset', 'ultrafast', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-movflags', '+faststart', sample])
 run(['-i', sample, '-f', 'null', '-'])
-run(['-i', sample, '-vf', 'scale=320:180,fps=10', '-an', '-c:v', 'libx264',
+run(['-i', sample, '-vf', 'scale=320:180:force_original_aspect_ratio=decrease:force_divisible_by=2,fps=10,setsar=1,setpts=N/(10*TB)', '-an', '-c:v', 'libx264',
      '-preset', 'veryfast', '-tune', 'zerolatency', '-profile:v', 'baseline',
      '-level:v', '3.0', '-b:v', '120k', str(test / 'scaled.mp4')])
 
