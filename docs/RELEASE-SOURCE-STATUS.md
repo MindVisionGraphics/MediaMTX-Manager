@@ -1,6 +1,12 @@
 # Release source audit — October 24, 2026
 
-The four app downloads and their checksums are uploaded to a **private draft**.
+The four original app downloads and their checksums are uploaded to a **private draft**.
+
+**Current direction:** The owner chose controlled source builds instead of
+maintainer outreach. No requests were sent. The new recipe is in
+[packaging/ffmpeg](../packaging/ffmpeg/BUILDING.md); its outputs must pass tests
+before replacing the old bundled executables. The findings below describe the
+previous vendor binaries, not a requirement to keep waiting for provider email.
 This page identifies the remaining source provenance work; it is not a finding
 that a provider has violated a license, or a legal certification.
 
