@@ -1,0 +1,64 @@
+name: Build documented FFmpeg
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ matrix.label }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: windows-x64
+            runner: windows-2022
+          - label: macos-x64
+            runner: macos-15-intel
+          - label: macos-arm64
+            runner: macos-14
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    env:
+      MTX_BUILD_LABEL: ${{ matrix.label }}
+      MACOSX_DEPLOYMENT_TARGET: '12.0'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Set up Windows build tools
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@ec48f7c5447b3140e2b088413ae3a55687bccb6e
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            make pkgconf nasm diffutils tar gzip python
+            mingw-w64-ucrt-x86_64-gcc
+      - name: Build and test Windows
+        if: runner.os == 'Windows'
+        shell: msys2 {0}
+        run: bash packaging/ffmpeg/build.sh
+      - name: Set up Mac assembler
+        if: runner.os == 'macOS'
+        run: command -v nasm || brew install nasm
+      - name: Build and test Mac
+        if: runner.os == 'macOS'
+        run: bash packaging/ffmpeg/build.sh
+      - name: Retain build diagnostics
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: diagnostics-${{ matrix.label }}
+          path: |
+            ${{ runner.temp }}/mtx-ffmpeg/ffmpeg/ffbuild/config.log
+            ${{ runner.temp }}/mtx-ffmpeg/x264/config.log
+          retention-days: 7
+      - name: Upload executable, source and build records
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: documented-ffmpeg-${{ matrix.label }}
+          path: .ffmpeg-artifacts/${{ matrix.label }}/
+          retention-days: 30
