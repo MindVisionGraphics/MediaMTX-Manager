@@ -15,14 +15,13 @@ MediaMTX, FFmpeg, or package-manager installation is required.
 
 These instructions apply to the packaged downloads. GitHub's **Code → Download ZIP**
 contains developer source files and is not a ready-to-install app. Preview downloads
-are staged in a draft release and are not public yet. The Mac previews are unsigned
+are provided on the [Releases page](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases). The Mac previews are unsigned
 and not notarized; macOS may display a security warning.
 
 ## Preview status
 
 This project is in active development. This repository currently provides source
-code, interface assets and packaging sources. Public installer downloads are not
-published yet. GitHub's Download ZIP contains source, not a ready-to-install app.
+code, interface assets and packaging sources. Packaged previews are listed on the Releases page. GitHub's Download ZIP contains source, not a ready-to-install app.
 
 | Edition or check | Status |
 | --- | --- |
@@ -41,7 +40,12 @@ The Mac preview also bundles its components and targets macOS 12.0 or later.
 Keychain persistence and remaining Mac acceptance checks still need confirmation.
 
 Platform notes: [Windows](platforms/windows/README.md) · [macOS](platforms/macos/README.md).
-Packaged apps will be separate, clearly named attachments on the Releases page.
+Packaged apps are separate, clearly named attachments on the Releases page.
+Source-built FFmpeg includes its matching source and build records as a separate download.
+The replacement passed native media tests on Windows, Intel Mac and Apple Silicon Mac,
+and packaged backend checks for sample streaming, MP4 recording and Quit/Start.
+The earlier owner acceptance results above used the previous FFmpeg component;
+Monterey execution of the replacement and interactive Apple Silicon app testing remain pending.
 
 ## Features
 
@@ -93,8 +97,9 @@ This source checkout excludes Node.js, Electron, MediaMTX and FFmpeg binaries.
 It is not the complete end-user installation package. With compatible runtimes
 provided in runtime/, developers can run `node launcher.mjs`.
 See [the source guide](docs/SOURCE-GUIDE.md) and [packaging notes](packaging/README.txt).
-The packaging scripts currently expect the project's local build layout; they are
-not yet a standalone automated release pipeline.
+The original packaging scripts use the project's local layout. The documented FFmpeg
+build and preview repackaging workflows are under .github/workflows; repackaging
+uses verified base app archives staged in a private release draft.
 
 ## A little hidden history 🏴‍☠️
 

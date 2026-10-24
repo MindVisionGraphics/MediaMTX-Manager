@@ -1,14 +1,29 @@
-# Release source audit — October 24, 2026
+# Controlled FFmpeg source builds — October 24, 2026
 
-The four original app downloads and their checksums are uploaded to a **private draft**.
+The previous vendor FFmpeg executables have been replaced in the new preview
+packages by builds from pinned FFmpeg 9.0.2 and x264 source archives. No provider
+email requests were sent, and a provider reply is no longer needed for this build.
 
-**Current direction:** The owner chose controlled source builds instead of
-maintainer outreach. No requests were sent. The new recipe is in
-[packaging/ffmpeg](../packaging/ffmpeg/BUILDING.md); its outputs must pass tests
-before replacing the old bundled executables. The findings below describe the
-previous vendor binaries, not a requirement to keep waiting for provider email.
-This page identifies the remaining source provenance work; it is not a finding
-that a provider has violated a license, or a legal certification.
+The [recipe](../packaging/ffmpeg/BUILDING.md) verifies both source archive hashes,
+records configure arguments and build logs, and restricts the external media
+library set to statically linked libx264. Each executable has its own hash,
+compiler identification, dependency report and native test results.
+
+The matching release attachment, **MediaMTX-Manager-FFmpeg-Corresponding-Sources.zip**,
+contains both complete upstream source archives plus actual records, recipes and
+license material for Windows x64, Mac Intel and Mac Apple Silicon. Manager code
+remains MIT; the separate FFmpeg executable and x264 retain their GPL terms.
+
+Native component tests passed on all three architectures: H.264/AAC creation,
+MP4 decoding, the existing custom quality filter chain, RTSP publish/receive and
+MediaMTX HLS playback. Windows forwarding and both custom website quality feeds
+also passed regression checks with the replacement. These are separate from
+interactive installer acceptance and execution of the replacement on Monterey.
+
+## Historical audit of superseded vendor binaries
+
+The following findings apply only to the old vendor files. They do not describe
+the source-built replacement and are not a finding of provider noncompliance.
 
 ## Material already collected
 
@@ -33,10 +48,8 @@ with clear directions and equivalent access; MindVision does not necessarily
 need to host every source file itself. The outstanding check is that the matching
 source/build information is actually available and identified.
 
-Provider-specific requests have been prepared; **no provider has been contacted**.
-A response may identify existing complete material, or supply missing information.
-An alternative is to use builds made from a fully tracked source set, followed by
-new platform testing. No unsupported source-supply promise is being made.
+Provider-specific requests were prepared but **not sent**. The owner chose the
+controlled rebuild described above instead of pursuing those requests.
 
 References: [Windows provider](https://www.gyan.dev/ffmpeg/builds/),
 [Intel provider](https://evermeet.cx/ffmpeg/),

@@ -6,4 +6,8 @@ Tapo viewing, pause/resume and recording passed earlier tests. Installed web
 shortcut, upgrade, uninstall and data preservation acceptance remain pending.
 The preview is unsigned. No command-line setup is needed for the packaged app.
 
-When published, get the Windows setup EXE from [Releases](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases).
+Get the Windows setup EXE from [Releases](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases).
+
+The source-built FFmpeg replacement passed native streaming tests, packaged
+backend recording/Quit-Start checks, forwarding and custom website-feed regression
+checks. The rebuilt installer itself has not been rerun interactively.
