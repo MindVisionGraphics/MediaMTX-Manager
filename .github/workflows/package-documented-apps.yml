@@ -1,0 +1,72 @@
+name: Package apps with documented FFmpeg
+
+on:
+  workflow_dispatch:
+    inputs:
+      windows_run:
+        description: Successful Windows documented FFmpeg build run ID
+        required: true
+        type: string
+      mac_run:
+        description: Successful Intel and ARM documented FFmpeg build run ID
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  sources:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify and collect corresponding source in the private draft
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          WINDOWS_RUN: ${{ inputs.windows_run }}
+          MAC_RUN: ${{ inputs.mac_run }}
+        run: python3 packaging/ffmpeg/bundle_sources.py "$WINDOWS_RUN" "$MAC_RUN"
+  package:
+    needs: sources
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: windows-x64
+            runner: windows-2022
+          - label: macos-x64
+            runner: macos-15-intel
+          - label: macos-arm64
+            runner: macos-14
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Repackage and test Windows backend without running the installer
+        if: runner.os == 'Windows'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          COMPONENT_RUN: ${{ inputs.windows_run }}
+        run: python packaging/ffmpeg/repackage.py windows-x64 $env:COMPONENT_RUN
+      - name: Repackage and test Mac backend
+        if: runner.os == 'macOS'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          COMPONENT_RUN: ${{ inputs.mac_run }}
+          BUILD_LABEL: ${{ matrix.label }}
+        run: python3 packaging/ffmpeg/repackage.py "$BUILD_LABEL" "$COMPONENT_RUN"
+      - name: Retain backend test results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: app-checks-${{ matrix.label }}
+          path: |
+            ${{ runner.temp }}/manager-repackage/app-smoke-results.json
+            ${{ runner.temp }}/manager-repackage/manager-test-data/manager.log
+          retention-days: 14
