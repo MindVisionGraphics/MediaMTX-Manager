@@ -60,6 +60,22 @@ Camera and browser compatibility varies. External streaming-service forwarding
 is experimental. This GUI does not claim tested support for every protocol
 supported by MediaMTX itself.
 
+## Screenshots
+
+### Camera dashboard
+
+Live camera controls, recording status and network activity in one workspace.
+
+![MediaMTX Manager dashboard with sample video and network activity](docs/images/dashboard.png)
+
+### Public Watch page
+
+A separate viewing page with Standard and Data Saver quality choices.
+
+![Public Watch page with sample video and quality controls](docs/images/watch-page.png)
+
+Screenshots show synthetic sample video, not a private camera feed.
+
 ## Camera setup
 
 For a compatible Tapo camera, create its local **Camera Account** in the Tapo app,
