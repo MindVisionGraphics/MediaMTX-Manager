@@ -1,7 +1,7 @@
 # MediaMTX Manager
 
 A desktop and browser interface for MediaMTX, created by **MindVision Graphics**.
-View cameras, record video, manage storage and share selected feeds with your website.
+View cameras, record video, manage storage and back up your local camera workspace.
 
 ## No command-line installation required
 
@@ -50,9 +50,6 @@ Packaged apps will be separate, clearly named attachments on the Releases page.
 - Recording timers, MP4 playback/download and recurring recording schedules.
 - Optional age-based cleanup, storage limits and free-space protection.
 - Encrypted settings backup and restore; recordings are excluded from backups.
-- Separate public Watch page for explicitly shared cameras.
-- Independent Standard and Data Saver website quality choices.
-- Estimated active website viewing-session counts.
 - Experimental RTMP/RTMPS forwarding controls.
 - Connected-curve navigation, built-in FAQ and branded About page.
 
@@ -68,13 +65,7 @@ Live camera controls, recording status and network activity in one workspace.
 
 ![MediaMTX Manager dashboard with sample video and network activity](docs/images/dashboard.png)
 
-### Public Watch page
-
-A separate viewing page with Standard and Data Saver quality choices.
-
-![Public Watch page with sample video and quality controls](docs/images/watch-page.png)
-
-Screenshots show synthetic sample video, not a private camera feed.
+The dashboard screenshot uses synthetic sample video, not a private camera feed.
 
 ## Camera setup
 
@@ -84,16 +75,17 @@ This account is separate from your normal Tapo sign-in. Other compatible cameras
 can use their manufacturer-provided RTSP path. H.264 is recommended for browser
 viewing. Camera passwords, recordings and local configuration are not in this repo.
 
-## Desktop, browser and website viewing
+## Desktop and browser editions
 
 Desktop and browser editions share the same local workspace. The manager normally
 opens at http://127.0.0.1:17860/. Closing its window leaves the manager running;
 Quit manager stops its worker and leaves Start manager available in the same window.
 
-Public website viewing is a separate, restricted service. Select the cameras to
-share and configure an HTTPS website connection; do not expose the private manager
-or camera credentials. Visitor quality choices do not change original recordings.
-See [website viewing](WEBSITE%20VIEWING.md) for configuration details.
+The public printing Watch page on MindVision Graphics' website is a separate,
+custom integration built for that website. It is not a public Watch page supplied
+as part of the general MediaMTX Manager product. Related integration source and
+historical notes remain in this development repository and should not be read as
+standard product features or setup requirements.
 
 ## Source and development
 

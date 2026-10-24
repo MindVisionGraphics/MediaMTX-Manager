@@ -1,3 +1,7 @@
+> **Custom website integration / development notes:** Website viewing described
+> here was developed for MindVision Graphics' own website. It is separate from
+> the general manager product and is not a bundled public Watch page offering.
+
 # MediaMTX Manager
 
 Read START HERE.md for the complete Windows instructions. Extract the full Windows package and double-click Start Manager.vbs. No terminal or dependency installation is required.

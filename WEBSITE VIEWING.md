@@ -1,3 +1,7 @@
+> **Custom website integration / development notes:** Website viewing described
+> here was developed for MindVision Graphics' own website. It is separate from
+> the general manager product and is not a bundled public Watch page offering.
+
 # Website viewing — local preparation
 
 This update adds Settings → Public website viewing and a separate, read-only viewer.
