@@ -49,7 +49,8 @@ def digest(path):
 def download(url, path, expected):
     path = pathlib.Path(path)
     h = headers()
-    h['Accept'] = 'application/octet-stream'
+    if '/releases/assets/' in url:
+        h['Accept'] = 'application/octet-stream'
     with opener.open(urllib.request.Request(url, headers=h), timeout=120) as response, path.open('wb') as output:
         while True:
             block = response.read(1024 * 1024)
