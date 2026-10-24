@@ -1,6 +1,7 @@
 """Package the native executable and the sources/configuration actually used."""
 import hashlib
 import json
+import os
 import pathlib
 import re
 import shutil
@@ -31,7 +32,7 @@ report = {'platform': label, 'source': json.loads((script / 'sources.json').read
     'enabledExternalLibraries': ['libx264'], 'enabledLibraryConfigurationFlags': enabled_external,
     'nativeSmokeTests': json.loads((root / 'smoke-results.json').read_text()),
     'compiler': command(['gcc' if label == 'windows-x64' else 'clang', '--version']),
-    'gitCommit': command(['git', '-C', str(repo), 'rev-parse', 'HEAD']).strip(),
+    'gitCommit': os.environ.get('GITHUB_SHA') or command(['git', '-C', str(repo), 'rev-parse', 'HEAD']).strip(),
     'patches': [], 'macOSMinimum': None}
 if label.startswith('macos-'):
     sys.path.insert(0, str(script.parent))

@@ -2,6 +2,11 @@ name: Build documented FFmpeg
 
 on:
   workflow_dispatch:
+    inputs:
+      windows_only:
+        description: Build only Windows (retain successful Mac artifacts from another run)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -11,14 +16,7 @@ jobs:
     name: ${{ matrix.label }}
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - label: windows-x64
-            runner: windows-2022
-          - label: macos-x64
-            runner: macos-15-intel
-          - label: macos-arm64
-            runner: macos-14
+      matrix: ${{ fromJSON(inputs.windows_only && '{"include":[{"label":"windows-x64","runner":"windows-2022"}]}' || '{"include":[{"label":"windows-x64","runner":"windows-2022"},{"label":"macos-x64","runner":"macos-15-intel"},{"label":"macos-arm64","runner":"macos-14"}]}') }}
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 45
     env:
