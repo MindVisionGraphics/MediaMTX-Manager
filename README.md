@@ -3,6 +3,21 @@
 A desktop and browser interface for MediaMTX, created by **MindVision Graphics**.
 View cameras, record video, manage storage and share selected feeds with your website.
 
+## No command-line installation required
+
+**No CMD, PowerShell, Terminal, sudo commands, or manual package installs.**
+The packaged apps include the components they need—no separate Node.js,
+MediaMTX, FFmpeg, or package-manager installation is required.
+
+- **Windows desktop:** open the setup EXE and follow the on-screen installer.
+- **Windows web edition:** extract the complete ZIP and double-click Start Manager.vbs.
+- **macOS:** extract the correct app ZIP and drag MediaMTX Manager.app into Applications.
+
+These instructions apply to the packaged downloads. GitHub's **Code → Download ZIP**
+contains developer source files and is not a ready-to-install app. Preview downloads
+are staged in a draft release and are not public yet. The Mac previews are unsigned
+and not notarized; macOS may display a security warning.
+
 ## Preview status
 
 This project is in active development. This repository currently provides source
