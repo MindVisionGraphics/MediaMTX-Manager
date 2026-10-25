@@ -12,7 +12,7 @@ using System.Web.Script.Serialization;
 
 [assembly: AssemblyTitle("MediaMTX Manager Setup")]
 [assembly: AssemblyCompany("MindVision Graphics")]
-[assembly: AssemblyVersion("0.9.0.0")]
+[assembly: AssemblyVersion("0.9.1.0")]
 
 static class InstallerFiles {
   public const string Id = "mindvision-mediamtx-manager-2026-v1";
@@ -111,7 +111,7 @@ static class InstallerFiles {
     Shortcut(Path.Combine(menu, "MediaMTX Manager - Web.lnk"), exe, "--web", Path.Combine(target,"app.ico"));
     Shortcut(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "MediaMTX Manager.lnk"), exe, "", Path.Combine(target,"app.ico"));
     using (var key = Registry.CurrentUser.CreateSubKey(Key)) {
-      key.SetValue("DisplayName", "MediaMTX Manager"); key.SetValue("DisplayVersion", "0.9.0-preview"); key.SetValue("Publisher", "MindVision Graphics");
+      key.SetValue("DisplayName", "MediaMTX Manager"); key.SetValue("DisplayVersion", "0.9.1-preview"); key.SetValue("Publisher", "MindVision Graphics");
       key.SetValue("InstallLocation", target); key.SetValue("DisplayIcon", Path.Combine(target,"app.ico")); key.SetValue("URLInfoAbout", "https://mindvisiongraphics.com/");
       key.SetValue("UninstallString", "\"" + Path.Combine(target,"Uninstall.exe") + "\""); key.SetValue("NoModify",1); key.SetValue("NoRepair",1);
     }
