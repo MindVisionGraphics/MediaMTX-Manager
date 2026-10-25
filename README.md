@@ -29,7 +29,7 @@ code, interface assets and packaging sources. Packaged previews are listed on th
 | Quit manager / Start manager in the same desktop window | Passed by the project owner |
 | Tapo camera playback, pause/resume and recording | Passed in earlier owner tests |
 | Installed web shortcut | Awaiting owner confirmation |
-| Upgrade, uninstall and data preservation | Acceptance testing pending |
+| Windows update, uninstall/reinstall and data preservation | Passed owner tests with the 0.9.1 update-test installer on October 25, 2026 |
 | macOS Intel — Monterey 12.1 | Core launch, camera, recording/playback, pause/resume and same-window Quit/Start passed owner tests |
 | macOS Apple Silicon | Compatibility checks passed; hardware testing pending |
 | Code signing / Mac notarization | Not completed |
