@@ -27,6 +27,6 @@ and [build script](../../packaging/build-macos.py). The script expects the local
 project build layout and downloaded archives; it is not a standalone CI pipeline.
 
 The source-built FFmpeg replacement passed native component tests and packaged
-backend recording/Quit-Start checks on both architectures. The earlier owner
-Monterey results used the previous FFmpeg; replacement execution on Monterey
-still needs confirmation. See [replacement notes](../../packaging/MONTEREY-DOCUMENTED-FFMPEG.md).
+backend recording/Quit-Start checks on both architectures. On October 24, 2026, the owner confirmed the updated Intel Mac build also works
+in the Monterey test environment after the requested recheck. Interactive
+Apple Silicon desktop testing remains pending. See [replacement notes](../../packaging/MONTEREY-DOCUMENTED-FFMPEG.md).

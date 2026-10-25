@@ -10,4 +10,5 @@ Get the Windows setup EXE from [Releases](https://github.com/MindVisionGraphics/
 
 The source-built FFmpeg replacement passed native streaming tests, packaged
 backend recording/Quit-Start checks, forwarding and custom website-feed regression
-checks. The rebuilt installer itself has not been rerun interactively.
+checks. The owner confirmed the rebuilt Windows installer works after the requested
+recheck on October 24, 2026.

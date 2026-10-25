@@ -17,8 +17,9 @@ remains MIT; the separate FFmpeg executable and x264 retain their GPL terms.
 Native component tests passed on all three architectures: H.264/AAC creation,
 MP4 decoding, the existing custom quality filter chain, RTSP publish/receive and
 MediaMTX HLS playback. Windows forwarding and both custom website quality feeds
-also passed regression checks with the replacement. These are separate from
-interactive installer acceptance and execution of the replacement on Monterey.
+also passed regression checks with the replacement. The owner subsequently confirmed the updated Windows installer and Intel Mac
+Monterey build work after the requested recheck on October 24, 2026. Interactive
+Apple Silicon desktop testing remains pending.
 
 ## Historical audit of superseded vendor binaries
 

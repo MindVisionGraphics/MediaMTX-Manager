@@ -44,8 +44,9 @@ Packaged apps are separate, clearly named attachments on the Releases page.
 Source-built FFmpeg includes its matching source and build records as a separate download.
 The replacement passed native media tests on Windows, Intel Mac and Apple Silicon Mac,
 and packaged backend checks for sample streaming, MP4 recording and Quit/Start.
-The earlier owner acceptance results above used the previous FFmpeg component;
-Monterey execution of the replacement and interactive Apple Silicon app testing remain pending.
+On October 24, 2026, the owner also confirmed that the updated source-built
+Windows installer and Intel Mac Monterey build work after the requested recheck.
+Interactive Apple Silicon desktop testing remains pending.
 
 ## Features
 
