@@ -18,6 +18,9 @@ contains developer source files and is not a ready-to-install app. Preview downl
 are provided on the [Releases page](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases). The Mac previews are unsigned
 and not notarized; macOS may display a security warning.
 
+Windows desktop update: [0.9.1 Preview](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases/tag/v0.9.1-preview.1).
+Mac and portable browser packages: [0.9.0 Preview 1](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases/tag/v0.9.0-preview.1).
+
 ## Preview status
 
 This project is in active development. This repository currently provides source

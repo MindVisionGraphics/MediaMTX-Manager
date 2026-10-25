@@ -1,0 +1,17 @@
+name: Publish exact tested Windows installer
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Reconstruct and hash-check exact owner-tested installer
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 packaging/ffmpeg/publish-tested-windows.py
