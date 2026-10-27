@@ -1,4 +1,4 @@
-# macOS Monterey preview
+# macOS 1.0.0 — Monterey or later
 
 Minimum macOS: **12.0**. Intel testing was performed on **Monterey 12.1** in VirtualBox.
 
@@ -14,7 +14,7 @@ Minimum macOS: **12.0**. Intel testing was performed on **Monterey 12.1** in Vir
 The reported virtual-machine restart is attributed by the tester to the VM
 setup and is excluded from application pass/fail results. Keychain persistence,
 backup/restore and longer-running Mac acceptance checks remain unconfirmed.
-Both builds are unsigned and not notarized; these are preview packages.
+Both builds are unsigned and not notarized; version 1.0.0 uses the same tested media components.
 
 Extract the architecture-specific ZIP in macOS and move MediaMTX Manager.app
 into Applications. No Terminal or manual dependency installation is intended.

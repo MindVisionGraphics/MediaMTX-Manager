@@ -92,7 +92,7 @@ for arch in ('arm64', 'x64'):
                     info = plistlib.loads(content)
                     info.update(CFBundleName='MediaMTX Manager', CFBundleDisplayName='MediaMTX Manager',
                                 CFBundleIdentifier='com.mindvisiongraphics.mediamtxmanager',
-                                CFBundleShortVersionString='0.9.0', CFBundleVersion='2026.10.23' if MONTEREY else '2026.10.22',
+                                CFBundleShortVersionString='1.0.0', CFBundleVersion='2026.10.23' if MONTEREY else '2026.10.22',
                                 CFBundleIconFile='MediaMTXManager.icns')
                     if MONTEREY:
                         info['LSMinimumSystemVersion'] = '12.0'
@@ -126,7 +126,7 @@ for arch in ('arm64', 'x64'):
         for component, content in binaries.items():
             rel = component if component == 'node' else component + '/' + component
             put(output, RESOURCE + 'manager/runtime/' + rel, content, True)
-        put(output, RESOURCE + 'app/package.json', json.dumps({'name': 'mediamtx-manager', 'version': '0.9.0', 'main': 'main.cjs'}).encode())
+        put(output, RESOURCE + 'app/package.json', json.dumps({'name': 'mediamtx-manager', 'version': '1.0.0', 'main': 'main.cjs'}).encode())
         put(output, RESOURCE + 'app/main.cjs', (ROOT / 'outputs/installer-source/app-main.cjs').read_bytes())
         notes = ('UNVERIFIED MAC BUILD - ' + label + '\n\n'
                  'Prepared on Windows. Launch, camera playback, recording, Keychain, permission prompts,\n'

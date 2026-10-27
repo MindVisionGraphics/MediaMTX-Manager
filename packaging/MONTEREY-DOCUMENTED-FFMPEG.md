@@ -27,11 +27,10 @@ desktop app on Apple Silicon.
 
 The owner previously confirmed Intel Monterey 12.1 app launch, sample video,
 real Tapo viewing, recording/playback, pause/resume and same-window Quit/Start
-with the prior FFmpeg component. After replacement, recheck sample playback
-and any forwarding in Monterey. The camera connection/recording service is
+with the prior FFmpeg component. The owner subsequently confirmed the updated Intel package works in Monterey. The camera connection/recording service is
 otherwise unchanged. Keychain persistence, backup/restore, long-running use,
 updates and preservation of data still need their remaining acceptance tests.
 
 The FFmpeg executable has an ad hoc signature for native loading. The app is
-not Developer ID signed or notarized and remains a preview. Source/build
+not Developer ID signed or notarized in the 1.0.0 release. Source/build
 documentation is not a claim of full platform acceptance or legal certification.

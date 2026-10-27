@@ -12,7 +12,7 @@ using System.Web.Script.Serialization;
 
 [assembly: AssemblyTitle("MediaMTX Manager Setup")]
 [assembly: AssemblyCompany("MindVision Graphics")]
-[assembly: AssemblyVersion("0.9.1.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
 
 static class InstallerFiles {
   public const string Id = "mindvision-mediamtx-manager-2026-v1";
@@ -111,7 +111,7 @@ static class InstallerFiles {
     Shortcut(Path.Combine(menu, "MediaMTX Manager - Web.lnk"), exe, "--web", Path.Combine(target,"app.ico"));
     Shortcut(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "MediaMTX Manager.lnk"), exe, "", Path.Combine(target,"app.ico"));
     using (var key = Registry.CurrentUser.CreateSubKey(Key)) {
-      key.SetValue("DisplayName", "MediaMTX Manager"); key.SetValue("DisplayVersion", "0.9.1-preview"); key.SetValue("Publisher", "MindVision Graphics");
+      key.SetValue("DisplayName", "MediaMTX Manager"); key.SetValue("DisplayVersion", "1.0.0"); key.SetValue("Publisher", "MindVision Graphics");
       key.SetValue("InstallLocation", target); key.SetValue("DisplayIcon", Path.Combine(target,"app.ico")); key.SetValue("URLInfoAbout", "https://mindvisiongraphics.com/");
       key.SetValue("UninstallString", "\"" + Path.Combine(target,"Uninstall.exe") + "\""); key.SetValue("NoModify",1); key.SetValue("NoRepair",1);
     }
@@ -163,7 +163,7 @@ static class Program {
     var form=new Form{Text="MediaMTX Manager Setup · MindVision Graphics",Width=670,Height=590,StartPosition=FormStartPosition.CenterScreen,FormBorderStyle=FormBorderStyle.FixedDialog,MaximizeBox=false,Font=new Font("Segoe UI",10)};
     form.Icon=Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
     var title=new Label{Text="Install MediaMTX Manager",Left=28,Top=25,Width=600,Height=35,Font=new Font("Segoe UI",19,FontStyle.Bold)};
-    var intro=new Label{Text="Desktop and web editions. No administrator access or commands needed.\nThis is an unsigned preview build. Close the manager before updating.",Left=30,Top=72,Width=600,Height=55};
+    var intro=new Label{Text="Desktop and web editions. No administrator access or commands needed.\nThis application is unsigned. Close the manager before updating.",Left=30,Top=72,Width=600,Height=55};
     var label=new Label{Text="Application folder",Left=30,Top=139,Width=590};
     var folder=new TextBox{Text=InstallerFiles.AppPath,Left=30,Top=169,Width=500};
     var browse=new Button{Text="Browse…",Left=535,Top=167,Width=88}; browse.Click+=(s,e)=>{using(var d=new FolderBrowserDialog{SelectedPath=folder.Text})if(d.ShowDialog()==DialogResult.OK)folder.Text=d.SelectedPath;};

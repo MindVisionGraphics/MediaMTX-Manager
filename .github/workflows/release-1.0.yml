@@ -1,0 +1,49 @@
+name: Release MediaMTX Manager 1.0.0
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - run: python3 packaging/ffmpeg/release_1_0.py prepare
+        env: {GITHUB_TOKEN: '${{ github.token }}'}
+  package:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {runner: windows-2022, mode: windows}
+          - {runner: macos-15-intel, mode: Intel}
+          - {runner: macos-14, mode: Apple-Silicon}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - if: runner.os == 'Windows'
+        run: python packaging/ffmpeg/release_1_0.py windows
+        env: {GITHUB_TOKEN: '${{ github.token }}'}
+      - if: runner.os == 'macOS'
+        run: python3 packaging/ffmpeg/release_1_0.py "$RELEASE_MODE"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RELEASE_MODE: ${{ matrix.mode }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: release-checks-${{ matrix.mode }}
+          path: ${{ runner.temp }}/release-1.0.0/checks.json
+          retention-days: 30
+  publish:
+    needs: package
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - run: python3 packaging/ffmpeg/release_1_0.py finish
+        env: {GITHUB_TOKEN: '${{ github.token }}'}

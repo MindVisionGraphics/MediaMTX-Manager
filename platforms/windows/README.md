@@ -1,4 +1,4 @@
-# Windows preview
+# Windows 1.0.0
 
 The graphical installer is packaged separately from this source repository.
 Desktop installation and Quit/Start in the same desktop window passed owner tests.
@@ -7,7 +7,7 @@ Tapo viewing, pause/resume and recording passed earlier tests. On October 25,
 installation, retained saved cameras, and successfully uninstalled/reinstalled
 while preserving cameras, settings and recordings. The owner also confirmed the installed web shortcut opens the saved
 dashboard in a browser.
-The preview is unsigned. No command-line setup is needed for the packaged app.
+The application is unsigned. No command-line setup is needed for the packaged app.
 
 Get the Windows setup EXE from [Releases](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases).
 

@@ -14,17 +14,17 @@ MediaMTX, FFmpeg, or package-manager installation is required.
 - **macOS:** extract the correct app ZIP and drag MediaMTX Manager.app into Applications.
 
 These instructions apply to the packaged downloads. GitHub's **Code → Download ZIP**
-contains developer source files and is not a ready-to-install app. Preview downloads
-are provided on the [Releases page](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases). The Mac previews are unsigned
+contains developer source files and is not a ready-to-install app. Release downloads
+are provided on the [Releases page](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases). The Mac apps are unsigned
 and not notarized; macOS may display a security warning.
 
-Windows desktop update: [0.9.1 Preview](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases/tag/v0.9.1-preview.1).
-Mac and portable browser packages: [0.9.0 Preview 1](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases/tag/v0.9.0-preview.1).
+[Download MediaMTX Manager 1.0.0 for Windows, macOS, or browser use](https://github.com/MindVisionGraphics/MediaMTX-Manager/releases/tag/v1.0.0).
+Earlier preview releases remain available as release history.
 
-## Preview status
+## Release and testing status
 
 This project is in active development. This repository currently provides source
-code, interface assets and packaging sources. Packaged previews are listed on the Releases page. GitHub's Download ZIP contains source, not a ready-to-install app.
+code, interface assets and packaging sources. Packaged downloads are listed on the Releases page. GitHub's Download ZIP contains source, not a ready-to-install app.
 
 | Edition or check | Status |
 | --- | --- |
@@ -37,9 +37,9 @@ code, interface assets and packaging sources. Packaged previews are listed on th
 | macOS Apple Silicon | Compatibility checks passed; hardware testing pending |
 | Code signing / Mac notarization | Not completed |
 
-The packaged Windows preview includes its required components and graphical
+The packaged Windows release includes its required components and graphical
 setup; end users do not need CMD, PowerShell or manual package installation.
-The Mac preview also bundles its components and targets macOS 12.0 or later.
+The Mac release also bundles its components and targets macOS 12.0 or later.
 Keychain persistence and remaining Mac acceptance checks still need confirmation.
 
 Platform notes: [Windows](platforms/windows/README.md) · [macOS](platforms/macos/README.md).
